@@ -32,7 +32,7 @@ class CTDataset(BaseDataset):
         A_image[A_image < 0] = 0
         A_image = A_image / 1e3
         A_image = A_image - 1
-        A_image = np.expand_dims(A_image, 0).astype(np.float)
+        A_image = np.expand_dims(A_image, 0).astype(float)
 
         # Paired image from B
         path = self.raw_data[index].replace(self.Aclass, self.Bclass)
@@ -40,7 +40,7 @@ class CTDataset(BaseDataset):
         B_image[B_image < 0] = 0
         B_image = B_image / 1e3
         B_image = B_image - 1
-        B_image = np.expand_dims(B_image, 0).astype(np.float)
+        B_image = np.expand_dims(B_image, 0).astype(float)
 
         return {'A': A_image, 'B': B_image}
 
